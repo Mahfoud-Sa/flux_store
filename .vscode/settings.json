@@ -1,0 +1,3 @@
+{
+    "dotnet.defaultSolution": "flux_store/build/windows/x64/flux_store.sln"
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flux_store/intro_1.dart';
-import 'package:flux_store/intro_page.dart';
+import 'package:flux_store/app/features/onbording/presentation/pages/onbording_page.dart';
+import 'package:flux_store/app/features/onbording/presentation/pages/welcome_page.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
@@ -13,13 +13,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Intro();
+        return const WelcomePage();
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'Intro_1',
+          path: 'Onbording',
           builder: (BuildContext context, GoRouterState state) {
-            return Intro_1();
+            return OnbordingPage();
           },
         ),
       ],

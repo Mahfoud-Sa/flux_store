@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class IntroButton extends StatelessWidget {
+class WelcomeButton extends StatelessWidget {
   final Function onTap;
   final String text;
-  const IntroButton({
+  const WelcomeButton({
     super.key,
     required this.onTap,
     required this.text,

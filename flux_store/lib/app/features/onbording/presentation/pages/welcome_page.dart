@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flux_store/intro_1.dart';
-import 'package:flux_store/widgets/intro_button.dart';
+import 'package:flux_store/app/features/onbording/presentation/pages/onbording_page.dart';
+import 'package:flux_store/app/features/onbording/presentation/widgets/welcome_button.dart';
 import 'package:go_router/go_router.dart';
 
-class Intro extends StatelessWidget {
-  const Intro({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
+
+        //background
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/intro.png"),
@@ -20,27 +22,29 @@ class Intro extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
+            const Text(
               'welcome to my shop',
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'the home of fashion',
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            IntroButton(
+
+            // welcome Buttons
+            WelcomeButton(
               onTap: () {
-                context.go('/intro_1');
+                context.go('/Onbording');
               },
               text: 'Get Started',
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             )
           ],

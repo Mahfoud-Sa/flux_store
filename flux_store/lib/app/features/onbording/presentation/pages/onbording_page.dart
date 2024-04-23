@@ -55,7 +55,9 @@ class _OnbordingPageState extends State<OnbordingPage> {
               height: 40,
             ),
             WelcomeButton(
-              onTap: () {},
+              onTap: () {
+                context.go('/Login');
+              },
               text: 'Shopping now',
             ),
           ],
@@ -76,9 +78,9 @@ class _OnbordingPageState extends State<OnbordingPage> {
           //   scrollBehavior: ,
           allowImplicitScrolling: true,
           children: const [
-            OnbordingWidget(path: "assets/images/onbording_image (0)"),
-            OnbordingWidget(path: "assets/images/onbording_image (1)"),
-            OnbordingWidget(path: "assets/images/onbording_image (2)"),
+            OnbordingWidget(path: "assets/images/onbording_image (0).png"),
+            OnbordingWidget(path: "assets/images/onbording_image (1).png"),
+            OnbordingWidget(path: "assets/images/onbording_image (2).png"),
           ]),
     );
   }

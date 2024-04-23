@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flux_store/app/features/Auth/presentation/widgets/auth_button.dart';
+import 'package:flux_store/app/features/Auth/presentation/widgets/input_field_widget.dart';
 import 'package:flux_store/app/features/Auth/presentation/widgets/social_media_button.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,35 +15,12 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
-                height: 163,
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Login\nInto your account',
-                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Form(
-                  child: Column(
-                children: [
-                  InputFieldWidget(hintText: 'Email Address'),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  InputFieldWidget(hintText: 'Password'),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
-              )),
+              _buildTitle(),
+              _buildForm(),
               Align(
                   alignment: Alignment.bottomRight,
-                  child: Text('Forget Password?')),
+                  child: InkWell(
+                      onTap: () {}, child: const Text('Forget Password?'))),
               const SizedBox(
                 height: 40,
               ),
@@ -54,45 +29,83 @@ class LoginPage extends StatelessWidget {
                 text: 'LOG IN',
               ),
               const Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text('Or login with'),
               ),
-              SizedBox(
-                width: 146,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SocialMediaButton(onTap: () {}, iconPath: 'apple_icon.png'),
-                    SocialMediaButton(
-                        onTap: () {}, iconPath: 'google_icon.png'),
-                    SocialMediaButton(
-                        onTap: () {}, iconPath: 'facebook_icon.png')
-                  ],
-                ),
-              ),
+              _buildSocialMediaButtons(),
               const SizedBox(
                 height: 80,
               ),
-              const Text('Do not Have an account? Sign Up')
+
+              // bottom text
+              RichText(
+                  text: const TextSpan(children: [
+                TextSpan(
+                  text: 'Do not Have an account?',
+                  style: TextStyle(color: Colors.black87),
+                ),
+                TextSpan(
+                  text: ' Sign Up',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                )
+              ]))
             ],
           ),
         ),
       ),
     );
   }
-}
 
-class InputFieldWidget extends StatelessWidget {
-  final String hintText;
-  const InputFieldWidget({
-    super.key,
-    required this.hintText,
-  });
+  SizedBox _buildSocialMediaButtons() {
+    return SizedBox(
+      width: 146,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          SocialMediaButton(onTap: () {}, iconPath: 'apple_icon.png'),
+          SocialMediaButton(onTap: () {}, iconPath: 'google_icon.png'),
+          SocialMediaButton(onTap: () {}, iconPath: 'facebook_icon.png')
+        ],
+      ),
+    );
+  }
 
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(hintText: hintText),
+  Form _buildForm() {
+    return const Form(
+        child: Column(
+      children: [
+        InputFieldWidget(hintText: 'Email Address'),
+        SizedBox(
+          height: 20,
+        ),
+        InputFieldWidget(hintText: 'Password'),
+        SizedBox(
+          height: 20,
+        ),
+      ],
+    ));
+  }
+
+  Column _buildTitle() {
+    return const Column(
+      children: [
+        SizedBox(
+          height: 163,
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            'Login\nInto your account',
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+      ],
     );
   }
 }

@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 
 class InputFieldWidget extends StatelessWidget {
   final String hintText;
-  const InputFieldWidget({
+  IconData? icon;
+
+  InputFieldWidget({
     super.key,
     required this.hintText,
+    this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: InputDecoration(hintText: hintText),
-    );
+        decoration: icon == null
+            ? InputDecoration(hintText: hintText)
+            : InputDecoration(hintText: hintText, prefixIcon: Icon(icon)));
   }
 }

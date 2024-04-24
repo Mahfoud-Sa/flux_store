@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flux_store/app/features/Auth/presentation/widgets/auth_button.dart';
 import 'package:flux_store/app/features/Auth/presentation/widgets/input_field_widget.dart';
 import 'package:flux_store/app/features/Auth/presentation/widgets/social_media_button.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -20,7 +21,10 @@ class LoginPage extends StatelessWidget {
               Align(
                   alignment: Alignment.bottomRight,
                   child: InkWell(
-                      onTap: () {}, child: const Text('Forget Password?'))),
+                      onTap: () {
+                        context.go('/ForgetPassword');
+                      },
+                      child: const Text('Forget Password?'))),
               const SizedBox(
                 height: 40,
               ),
@@ -74,15 +78,15 @@ class LoginPage extends StatelessWidget {
   }
 
   Form _buildForm() {
-    return const Form(
+    return Form(
         child: Column(
       children: [
         InputFieldWidget(hintText: 'Email Address'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InputFieldWidget(hintText: 'Password'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
       ],

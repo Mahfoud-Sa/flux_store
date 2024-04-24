@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flux_store/app/features/Auth/presentation/pages/forget_password_page.dart';
 import 'package:flux_store/app/features/Auth/presentation/pages/login_page.dart';
 import 'package:flux_store/app/features/onbording/presentation/pages/onbording_page.dart';
 import 'package:flux_store/app/features/onbording/presentation/pages/welcome_page.dart';
@@ -26,7 +27,13 @@ final GoRouter _router = GoRouter(
         GoRoute(
           path: 'Login',
           builder: (BuildContext context, GoRouterState state) {
-            return LoginPage();
+            return const LoginPage();
+          },
+        ),
+        GoRoute(
+          path: 'ForgetPassword',
+          builder: (BuildContext context, GoRouterState state) {
+            return const ForgetPasswordPage();
           },
         ),
       ],

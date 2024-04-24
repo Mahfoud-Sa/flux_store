@@ -20,7 +20,7 @@ class AuthButton extends StatelessWidget {
         width: 147,
         height: 51,
         decoration: const BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            borderRadius: BorderRadius.all(Radius.circular(50)),
             color: Colors.black),
         child: Center(
           child: Text(
